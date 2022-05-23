@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="container"></div>
+    <br />
+    <br />
+    <br />
+    <div class="restartContainer">
+      You Won
+      <br />
+      <button id="restart-button" onclick="load()">Restart</button>
+    </div>
+    <div id="cardHolders">
+      <img
+        aria-label="spade"
+        data-card-type="S"
+        src="https://github.com/Newton-School/Deck_of_Cards/blob/main/JPEG/spade.png?raw=true"
+        id="100"
+        ondragover="onDragOver(event)"
+        ondrop="onDrop(event)"
+      />
+      <img
+        aria-label="diamond"
+        data-card-type="D"
+        src="https://github.com/Newton-School/Deck_of_Cards/blob/main/JPEG/diamond.jpg?raw=true"
+        id="101"
+        ondragover="onDragOver(event)"
+        ondrop="onDrop(event)"
+      />
+      <img
+        aria-label="clubs"
+        data-card-type="C"
+        src="https://github.com/Newton-School/Deck_of_Cards/blob/main/JPEG/club.png?raw=true"
+        id="102"
+        ondragover="onDragOver(event)"
+        ondrop="onDrop(event)"
+      />
+      <img
+        aria-label="hearts"
+        data-card-type="H"
+        src="https://github.com/Newton-School/Deck_of_Cards/blob/main/JPEG/heart.png?raw=true"
+        id="103"
+        ondragover="onDragOver(event)"
+        ondrop="onDrop(event)"
+      />
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>

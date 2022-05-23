@@ -1,0 +1,53 @@
+body {
+  background: burlywood;
+}
+
+#cardHolders {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#cardHolders img {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  height: 80px;
+  object-fit: cover;
+  background: #fff;
+}
+
+#container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  margin: 1rem;
+  height: 110px;
+  width: 75px;
+}
+.card img {
+  height: 100px;
+  object-fit: cover;
+}
+
+.restartContainer {
+  visibility: hidden;
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 200px;
+  width: 200px;
+  background: #fff;
+}
+
+#restart-button {
+  padding: 10px 30px;
+}
