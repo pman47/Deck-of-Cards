@@ -37,8 +37,7 @@ body {
 }
 
 .restartContainer {
-  visibility: hidden;
-  display: flex;
+  display: none;
   box-sizing: border-box;
   align-items: center;
   justify-content: center;
