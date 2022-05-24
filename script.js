@@ -54,29 +54,35 @@ const cardNames = [
   "QS",
 ];
 
+let cardsArr = [...cardNames];
+
 window.onload = load;
 
 function load() {
-  document.querySelector(".restartContainer").style.visibility = "hidden";
-  document.getElementById("100").innerHTML = "";
-  document.getElementById("101").innerHTML = "";
-  document.getElementById("102").innerHTML = "";
-  document.getElementById("103").innerHTML = "";
+  // document.querySelector(".restartContainer").remove();
+  // document.getElementById("100").innerHTML = "";
+  // document.getElementById("101").innerHTML = "";
+  // document.getElementById("102").innerHTML = "";
+  // document.getElementById("103").innerHTML = "";
   const container = document.getElementById("container");
   container.innerHTML = "";
-  shuffle(cardNames);
-  //   let random = Math.floor(Math.random() * 10) + 1;
+  shuffle(cardsArr);
+  // let random = Math.floor(Math.random() * 40) + 1;
   for (let i = 0; i < 52; i++) {
-    let url = `https://github.com/Newton-School/Deck_of_Cards/blob/main/JPEG/${cardNames[i]}.jpg?raw=true;`;
+    let url = `https://github.com/Newton-School/Deck_of_Cards/blob/main/JPEG/${cardsArr[i]}.jpg?raw=true;`;
     const card = document.createElement("div");
     card.classList.add("card");
+    card.draggable = false;
     const img = document.createElement("img");
-    img.dataset.cardNo = cardNames[i];
+    img.dataset.cardNo = cardsArr[i];
     img.draggable = true;
     img.ondragstart = onDragStart;
     img.src = url;
     img.classList.add("cardImg");
     img.id = i;
+    img.ondragstart = () => {
+      onDragStart();
+    };
     card.append(img);
     container.append(card);
   }
@@ -105,6 +111,7 @@ function shuffle(array) {
 function onDragStart() {
   event.dataTransfer.setData("text", event.target.id);
   event.dataTransfer.setData("cardNo", event.target.dataset.cardNo.slice(-1));
+  // console.log(event.dataTransfer);
 }
 
 function onDrop(event) {
@@ -115,31 +122,36 @@ function onDrop(event) {
   //   console.log(dropzone.dataset.cardType);
   if (dropzone.dataset.cardType == cardNo) {
     // dropzone.appendChild(draggableElement);
+    draggableElement.parentElement.remove();
     draggableElement.remove();
     // draggableElement.classList.remove("cardImg");
     // draggableElement.id = "";
   }
   event.dataTransfer.clearData();
-  checkIfAllDone();
+  // checkIfAllDone();
 }
 
 function onDragOver(event) {
   event.preventDefault();
 }
 
-function checkIfAllDone() {
-  let flag = false;
-  const container = document.querySelector("#container").childNodes;
-  for (con of container) {
-    if (con.hasChildNodes()) {
-      console.log("yes");
-      flag = true;
-    }
-  }
-  if (!flag) {
-    document.querySelector(".restartContainer").style.visibility = "visible";
-  }
-  //   if (document.getElementsByClassName("cardImg").length == 0) {
-  //     document.querySelector(".restartContainer").style.display = "flex";
-  //   }
-}
+// function checkIfAllDone() {
+//   let flag = false;
+//   const container = document.querySelector("#container").childNodes;
+//   for (con of container) {
+//     if (con.hasChildNodes()) {
+//       flag = true;
+//     }
+//   }
+//   if (!flag) {
+//     const restartBtn = document.createElement("div");
+//     restartBtn.innerHTML = `You Won
+//       <br />
+//       <button id="restart-button" onclick="window.location.reload()">Restart</button>`;
+//     restartBtn.classList.add("restartContainer");
+//     document.body.append(restartBtn);
+//   }
+//   //   if (document.getElementsByClassName("cardImg").length == 0) {
+//   //     document.querySelector(".restartContainer").style.display = "flex";
+//   //   }
+// }
